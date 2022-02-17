@@ -49,12 +49,16 @@ import { getFirebaseConfig } from './firebase-config.js';
 
 // Signs-in Friendly Chat.
 async function signIn() {
-  alert('TODO: Implement Google Sign-In');
+    // Sign in Firebase using popup auth and Google as the identity provider.
+    var provider = new GoogleAuthProvider();
+    await signInWithPopup(getAuth(), provider);
   // TODO 1: Sign in Firebase with credential from the Google user.
 }
 
 // Signs-out of Friendly Chat.
 function signOutUser() {
+    // Sign out of Firebase.
+    signOut(getAuth());
   // TODO 2: Sign out of Firebase.
 }
 
@@ -349,3 +353,5 @@ const firebaseAppConfig = getFirebaseConfig();
 
 initFirebaseAuth();
 loadMessages();
+const firebaseAppConfig = getFirebaseConfig();
+initializeApp(firebaseAppConfig);
